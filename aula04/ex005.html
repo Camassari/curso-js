@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo DOM</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(117, 117, 163);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aprendendo DOM básico</h1>
+    <p class="testing">Testando agora</p>
+    <p class="greeting">Olá, Mundo!</p>
+    <p>Outro teste</p>
+    <div id="click">Clique em mim</div>
+    <script>
+        // Query selector
+        var p1 = window.document.querySelector("p.testing") 
+        // Class selector
+        var p2 = window.document.getElementsByClassName("greeting")[0]
+        // Tag selector
+        var p3 = window.document.getElementsByTagName("p")[2]
+        // Id selector
+        var div1 = window.document.getElementById("click")
+
+        p1.innerHTML = "Olaaaa"
+        p2.innerHTML = "To testando DOM e seletores"
+        p3.innerHTML = "Agora eu sou o olá mundo"
+        div1.innerText = "Dá uma clicada em mim"
+    </script>
+</body>
+</html>
