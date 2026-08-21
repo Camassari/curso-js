@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora simples</title>
+</head>
+<body>
+    <h1>Calcular</h1>
+    <input type="number" name="n1" id="in1"> +
+    <input type="number" name="n2" id="in2">
+    <input type="submit" id="enviar" value="Calcular">
+    <div id="resultado">Resultado</div>
+    <script>
+        enviar.addEventListener("click", clicou)
+
+        function clicou() {
+            var txtn1 = window.document.getElementById("in1")
+            var txtn2 = window.document.getElementById("in1")
+
+            var n1 = Number(txtn1.value)
+            var n2 = Number(txtn2.value)
+
+            var enviar = window.document.getElementById("enviar")
+            var soma = window.document.getElementById("resultado")
+
+            var s = n1 + n2
+            soma.innerText = `O resultado da soma de ${n1} + ${n2} = ${s}`
+        }
+    </script>
+</body>
+</html>
