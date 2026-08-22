@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de nacionalidade</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-image: linear-gradient(to bottom, #3a753a, #cfca8d);
+        }
+
+        main {
+            background-color: rgba(255, 255, 255, 0.832);
+            margin: auto;
+            width: 60%;
+            height: 95vh;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: rgb(24, 24, 24);
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        div.form {
+            margin-top: 10px;
+            display:flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Teste de nacionalidade</h1>
+        <p>Digite seu País abaixo</p>
+        <div class="form">
+            <input type="text" name="nac" id="inac" placeholder="País">
+            <input type="submit" value="Enviar" onclick="testar()">
+        </div>
+        <div style="margin-top: 10px;" id="resultado"></div>
+
+        <script>
+            function testar() {
+                var nacionalidade = window.document.querySelector("input#inac")
+                var resultado = window.document.querySelector("div#resultado")
+
+                if (nacionalidade == "Brasil") {
+                    resultado.innerHTML = "<p>Brasileiro</p>"
+                } else [
+                    resultado.innerHTML = "<p>É gringo</p>"
+                ]
+
+            }
+        </script>
+    </main>
+</body>
+</html>
