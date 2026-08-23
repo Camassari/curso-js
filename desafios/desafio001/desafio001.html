@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100%;
+            background-color: rgb(26, 129, 255);
+        }
+
+        header > h1 {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+        main {
+            width: 70%;
+            background-color: white;
+            margin: auto;
+            height: 450px;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.397);
+        }
+
+        main p {
+            text-align: center;
+        }
+
+        main img {
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        footer {
+            width: 100%;
+        }
+
+        footer > p {
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+    <main>
+        <div>
+            <p class="txt-hora">Texto Exemplo 1</p>
+        </div>
+        <div>
+            <img class="ft" src="periodos/manha.png" alt="Periodo">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Enzo Camassari</p>
+    </footer>
+    <script>
+        function carregar() {
+            var agora = new Date()
+            var hora = agora.getHours()
+            var min = agora.getMinutes()
+            var imagem = window.document.querySelector("img.ft")
+            var txt_hora = window.document.querySelector("p.txt-hora")
+            var body = window.document.body
+
+            txt_hora.innerHTML = `Agora são ${hora} horas e ${min} minutos`
+
+            if (hora <= 12) {
+                imagem.src = "periodos/manha.png"
+                body.style.background = "#fffcb2"
+            } else if (hora <= 18) {
+                imagem.src = "periodos/tarde.png"
+                body.style.background = "#d1996e"
+            } else {
+                imagem.src = "periodos/noite.png"
+                body.style.background = "#7d6ed1"
+            }
+        }
+    </script>
+</body>
+</html>
