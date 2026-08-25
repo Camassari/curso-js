@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html, body {
+            min-height: 100%;
+            background-color: rgb(26, 129, 255);
+        }
+
+        header > h1 {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+        main {
+            width: 70%;
+            background-color: white;
+            margin: auto;
+            height: 450px;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.397);
+        }
+
+        footer {
+            width: 100%;
+        }
+
+        footer > p {
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    <main>
+        <div>
+            <p>Digite um número: <input type="number" name="num" id="num"> <input type="submit" value="Gerar tabuada" onclick="gerar_tabuada()"></p>
+        </div>
+        <div>
+            <select name="tabuada" id="tabuada" size="10">
+                <option>Digite um número acima</option>
+            </select>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Enzo Camassari</p>
+    </footer>
+    <script>
+        function gerar_tabuada() {
+            var num = window.document.querySelector("input#num")
+            var tabuada = window.document.querySelector("select#tabuada")
+
+            if (!num) {
+                window.alert("POR FAVOR DIGITE UM NÚMERO")
+            } else {
+                let n = Number(num.value)
+                tabuada.innerHTML = ""
+
+                for (var c=1; c <= 10; c++) {
+                    let opt = document.createElement("option")
+                    opt.text = `${n} x ${c} = ${n*c}`
+                    tabuada.appendChild(opt)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

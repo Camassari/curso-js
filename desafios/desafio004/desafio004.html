@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html, body {
+            min-height: 100%;
+            background-color: rgb(26, 129, 255);
+        }
+
+        header > h1 {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+        main {
+            width: 70%;
+            background-color: white;
+            margin: auto;
+            height: 450px;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.397);
+        }
+
+        main p {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            width: 100%;
+        }
+
+        footer > p {
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+    <main>
+        <div>
+            <p>Início: <input type="number" name="inicio" id="inicio"></p>
+            <p>Fim: <input type="number" name="fim" id="fim"></p>
+            <p>Passo <input type="number" name="passo" id="passo"></p>
+            <p><input type="submit" value="Contar" onclick="contar()"></p>
+        </div>
+        <div>
+            <p id="resultado">Preparando contagem...</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Enzo Camassari</p>
+    </footer>
+    <script>
+        function contar() {
+            var inicio = window.document.querySelector("input#inicio")
+            var fim = window.document.querySelector("input#fim")
+            var passo = window.document.querySelector("input#passo")
+            var resultado = window.document.querySelector("p#resultado")
+
+            if (!inicio.value || !fim.value || !passo.value) {
+                resultado.innerHTML = "[ERRO] Falta de valores, porfavor preencha todos os campos"
+            } else {
+                var inicio_num = Number(inicio.value)
+                var fim_num = Number(fim.value)
+                var passo_num = Number(passo.value)
+
+                if (passo.value == 0) {
+                    window.alert("PASSO 0 INVÁLIDO, considerando PASSO = 1")
+                    var passo_num = 1
+                }
+
+                if (inicio_num > fim_num) {
+                    var counter = inicio_num
+                    resultado.innerHTML = ""
+                    for (counter; counter >= fim_num; counter-=passo_num) {
+                        resultado.innerHTML += `${counter} &#x27A1; `
+                    }
+                    resultado.innerHTML += "&#x1F3C1;"
+                } else {
+                    var counter = inicio_num
+                    resultado.innerHTML = ""
+                    for (counter; counter <= fim_num; counter+=passo_num) {
+                        resultado.innerHTML += `${counter} &#x27A1; `
+                    }
+                    resultado.innerHTML += "&#x1F3C1;"
+                }
+            }
+        }
+    </script>
+</body>
+</html>
