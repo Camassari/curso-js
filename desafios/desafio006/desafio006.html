@@ -46,21 +46,22 @@
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Analisador de números</h1>
     </header>
     <main>
         <div>
-            <p>Texto Exemplo 1</p>
+            <p>Número entre 1 e 100: <input type="number" name="num" id="num"><input type="submit" value="Enviar" onclick="adicionar()"></p>
+
+            <select name="select" id="select" size="10"></select>
+            <p><input type="submit" value="Finalizar" onclick="finalizar()"></p>
         </div>
         <div>
-            <p>Texto exemplo 2</p>
+            <p id="resultado"></p>
         </div>
     </main>
     <footer>
         <p>&copy; <em>Enzo Camassari</em></p>
     </footer>
-    <script>
-
-    </script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
