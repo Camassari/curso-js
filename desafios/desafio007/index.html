@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Game of thrones</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            min-width: 100%;
+        }
+
+        body {
+            background-color: rgb(26, 26, 26);
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+
+            display: grid;
+            grid-template-rows: auto, 1fr, auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+
+        p#texto {
+            margin: 20px
+        }
+
+        img {
+            width: 200px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            margin-left: 50px;
+        }
+
+        footer > p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="carregarPersonagem()">
+    <header>
+        <h1>GAME OF THRONES TEST - API</h1>
+    </header>
+    <main>
+        <p id="texto"></p>
+        <img id="imagem" src="" alt="">
+    </main>
+    <footer>
+        <p>Site feito por &copy; Kamasultra</p>
+    </footer>
+    <script>
+        async function carregarPersonagem() {
+            const resposta = await fetch("https://thronesapi.com/api/v2/Characters")
+            const info = await resposta.json()
+            const nome = ""
+            const personagem = info.find(c => c.firstName === nome)
+
+            let txt = window.document.getElementById("texto")
+            txt.innerHTML += `Primeiro nome: ${personagem.firstName}<br>`
+            txt.innerHTML += `Segundo nome: ${personagem.lastName}<br>`
+            txt.innerHTML += `Familia: ${personagem.family}<br>`
+            txt.innerHTML += `Título: ${personagem.title}<br>`
+
+            let img = window.document.getElementById("imagem")
+            img.src = personagem.imageUrl
+
+        }
+    </script>
+</body>
+</html>
