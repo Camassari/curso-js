@@ -25,3 +25,8 @@ console.log(stringJSON)
 
 objetoJS = JSON.parse(stringJSON)
 console.log(objetoJS)
+
+// Spread
+let {nome, ...resto} = objetoJS
+console.log("RESTO")
+console.log(resto)
