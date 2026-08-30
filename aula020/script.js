@@ -3,7 +3,7 @@ async function pegarPokemon(pokemon) {
     const info = await resposta.json()
 
     if (!pokemon) {
-        throw Error("Nenhum pokemon com esse nome existe")
+        throw new Error("Nenhum pokemon com esse nome existe")
     }
     
     console.log(`Nome: ${info.name}`)
